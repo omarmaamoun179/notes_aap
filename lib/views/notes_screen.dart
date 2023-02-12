@@ -6,8 +6,15 @@ class NotesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CustomAppBar(),
+    return Scaffold(
+      body: Column(
+        children: [
+          SizedBox(
+            height: 55,
+          ),
+          CustomAppBar(),
+        ],
+      ),
     );
   }
 }
