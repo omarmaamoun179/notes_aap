@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../constant.dart';
 class CustomButtom extends StatelessWidget {
   const CustomButtom({super.key, this.onTap});
   final void Function()? onTap;
