@@ -11,7 +11,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 45,
-        color: Color(KPrimarycolor),
+        color: (kPrimarycolor),
         child: const Center(
           child: Text(
             'Add Note',
