@@ -8,7 +8,8 @@ class CustomTextField extends StatelessWidget {
   final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextFormField( 
+      textInputAction: TextInputAction.next,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'Field is Required';
