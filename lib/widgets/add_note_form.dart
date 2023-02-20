@@ -46,15 +46,16 @@ class _AddNoteValidateState extends State<AddNoteValidate> {
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-                var notemodel = NoteModel(
+                 var notemodel = NoteModel(
                     title: title!,
                     subtitle: subTitle!,
                     date: DateTime.now().toString(),
                     color: Colors.yellowAccent.value);
                 BlocProvider.of<AddnoteCubit>(context).addNote(notemodel);
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+               
               }
             },
           ),
