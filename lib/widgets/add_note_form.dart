@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:notes_app/add_note_cubit/cubit/addnote_cubit.dart';
 import 'package:notes_app/constant.dart';
 import 'package:notes_app/model/note_model.dart';
+import 'package:notes_app/widgets/colors_listview.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_textfield.dart';
 
@@ -44,6 +45,7 @@ class _AddNoteValidateState extends State<AddNoteValidate> {
             maxLines: 4,
           ),
           const SizedBox(height: 30),
+         const  ColorsListView(),
           BlocBuilder<AddnoteCubit, AddnoteState>(
             builder: (context, state) {
               return CustomButtom(
