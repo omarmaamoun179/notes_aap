@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/note_item.dart';
 import 'package:notes_app/widgets/note_list.dart';
+
+import '../add_note_cubit/cubit/notes_cubit/cubit/notes_cubit.dart';
 
 class NotesBody extends StatefulWidget {
   const NotesBody({super.key});
@@ -12,6 +15,12 @@ class NotesBody extends StatefulWidget {
 }
 
 class _NotesBodyState extends State<NotesBody> {
+   @override
+  void initState() { 
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    super.initState();
+    
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector
