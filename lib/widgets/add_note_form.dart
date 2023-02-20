@@ -39,14 +39,14 @@ class _AddNoteValidateState extends State<AddNoteValidate> {
               subTitle = value;
             },
             hint: 'Content',
-            maxLines: 5,
+            maxLines: 4,
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           CustomButtom(
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                 var notemodel = NoteModel(
+                var notemodel = NoteModel(
                     title: title!,
                     subtitle: subTitle!,
                     date: DateTime.now().toString(),
@@ -55,8 +55,8 @@ class _AddNoteValidateState extends State<AddNoteValidate> {
               } else {
                 autovalidateMode = AutovalidateMode.always;
                 setState(() {});
-               
               }
+              const SizedBox(height: 50);
             },
           ),
         ],
