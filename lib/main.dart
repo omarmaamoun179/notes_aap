@@ -9,8 +9,9 @@ import 'package:notes_app/views/note_screen.dart';
 void main() async {
   await Hive.initFlutter();
  Bloc.observer =  SimpleBlocObserve();
+   Hive.registerAdapter(NoteModelAdapter());
+
   await Hive.openBox<NoteModel>(kNoteBox);
-  Hive.registerAdapter(NoteModelAdapter());
   runApp(const NotesApp());
 }
 
