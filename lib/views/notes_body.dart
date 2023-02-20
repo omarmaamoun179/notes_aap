@@ -4,9 +4,14 @@ import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/note_item.dart';
 import 'package:notes_app/widgets/note_list.dart';
 
-class NotesBody extends StatelessWidget {
+class NotesBody extends StatefulWidget {
   const NotesBody({super.key});
 
+  @override
+  State<NotesBody> createState() => _NotesBodyState();
+}
+
+class _NotesBodyState extends State<NotesBody> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector
