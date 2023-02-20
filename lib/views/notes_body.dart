@@ -12,50 +12,39 @@ import 'package:notes_app/widgets/note_list.dart';
 import '../add_note_cubit/cubit/notes_cubit/cubit/notes_cubit.dart';
 
 class NotesBody extends StatefulWidget {
-  const NotesBody({super.key});
+  const NotesBody({
+    super.key,
+  });
 
   @override
   State<NotesBody> createState() => _NotesBodyState();
 }
 
 class _NotesBodyState extends State<NotesBody> {
+  NoteModel? noteModel;
   @override
   void initState() {
     BlocProvider.of<NotesCubit>(context).fetchAllNotes();
     super.initState();
   }
 
-  NoteModel? noteModel;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: ((context) => EditNoteView()),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 55,
-            ),
-            CustomAppBar(
-              title: 'Notes',
-              icon: Icon(Icons.search),
-            
-              
-            ),
-         
-            Expanded(
-              child: NoteListviewItem(),
-            ),
-            
-            
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 55,
+          ),
+          CustomAppBar(
+            title: 'Notes',
+            icon: Icon(Icons.search),
+          ),
+          Expanded(
+            child: NoteListviewItem(),
+          ),
+        ],
       ),
     );
   }
