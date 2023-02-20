@@ -17,20 +17,22 @@ class NoteItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           ListTile(
-            title:  Text(
-                  noteModel.title ,
+            title: Text(
+              noteModel.title,
               style: const TextStyle(color: Colors.black, fontSize: 24),
             ),
             subtitle: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Text(
-               noteModel.subtitle,
+                noteModel.subtitle,
                 style: TextStyle(
                     color: Colors.black.withOpacity(.5), fontSize: 20),
               ),
             ),
             trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  noteModel.delete();
+                },
                 icon: Icon(Icons.delete),
                 color: Colors.black),
           ),
