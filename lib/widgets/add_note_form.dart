@@ -46,6 +46,7 @@ class _AddNoteValidateState extends State<AddNoteValidate> {
           ),
           const SizedBox(height: 30),
          const  ColorsListView(),
+         const SizedBox(height: 30),
           BlocBuilder<AddnoteCubit, AddnoteState>(
             builder: (context, state) {
               return CustomButtom(
