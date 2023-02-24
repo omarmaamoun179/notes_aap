@@ -27,7 +27,7 @@ class _EditNoteState extends State<EditNote> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+          const   SizedBox(
               height: 55,
             ),
             CustomAppBar(
@@ -38,10 +38,10 @@ class _EditNoteState extends State<EditNote> {
                 Navigator.pop(context);
                 BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               },
-              icon: Icon(Icons.check),
+              icon:  const Icon(Icons.check),
               title: 'Edit Note',
             ),
-            SizedBox(
+         const    SizedBox(
               height: 12,
             ),
             CustomTextField(
@@ -49,7 +49,7 @@ class _EditNoteState extends State<EditNote> {
                   title = value;
                 },
                 hint: widget.noteModel.title),
-            SizedBox(
+           const  SizedBox(
               height: 16,
             ),
             CustomTextField(

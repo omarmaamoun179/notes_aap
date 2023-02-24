@@ -33,7 +33,7 @@ class _NotesBodyState extends State<NotesBody> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
-        children: [
+        children: const [
           SizedBox(
             height: 55,
           ),

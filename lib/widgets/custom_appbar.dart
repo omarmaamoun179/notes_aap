@@ -10,12 +10,12 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
         // ignore: prefer_const_literals_to_create_immutables
-        children: [
+        children:  [
           Text(
             title,
-            style: TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24),
           ),
-          Spacer(),
+         const Spacer(),
           Container(
               height: 45,
               width: 45,

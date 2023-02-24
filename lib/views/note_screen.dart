@@ -25,7 +25,7 @@ class NoteScreen extends StatelessWidget {
                 });
           },
           child: const Icon(Icons.add)),
-      body:  NotesBody(
+      body: const  NotesBody(
       
       ),
     );

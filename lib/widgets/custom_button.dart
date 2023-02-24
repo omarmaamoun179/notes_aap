@@ -20,8 +20,8 @@ class CustomButtom extends StatelessWidget {
             color: kPrimarycolor,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Center(
-            child: isLoading ? CircularProgressIndicator() : Text(
+          child:   Center(
+            child: isLoading ?  const CircularProgressIndicator() :  const Text(
               'Add Note',
               style: TextStyle(
                 color: Colors.black,
