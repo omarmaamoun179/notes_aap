@@ -58,3 +58,39 @@ class _EditNoteState extends State<EditNote> {
     );
   }
 }
+class EditColorList extends StatefulWidget {
+  const EditColorList({super.key});
+
+  @override
+  State<EditColorList> createState() => _EditColorListState();
+}
+
+class _EditColorListState extends State<EditColorList> {
+  @override
+  Widget build(BuildContext context) {
+    return   SizedBox(
+      height: 35 * 2,
+      child: ListView.builder(
+        itemCount: color.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6.0),
+            child: GestureDetector(
+              onTap: () {
+                currentIndex = index;
+                BlocProvider.of<AddnoteCubit>(context).color = color[index];
+
+                setState(() {});
+              },
+              child: ColorsItem(
+                color: color[index],
+                isActive: currentIndex == index,
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
