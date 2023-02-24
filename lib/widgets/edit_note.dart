@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/add_note_cubit/cubit/addnote_cubit.dart';
 import 'package:notes_app/add_note_cubit/cubit/notes_cubit/cubit/notes_cubit.dart';
+import 'package:notes_app/constant.dart';
 import 'package:notes_app/model/note_model.dart';
+import 'package:notes_app/widgets/colors_listview.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_textfield.dart';
+import 'package:notes_app/widgets/edit_color_list.dart';
 
 class EditNote extends StatefulWidget {
   const EditNote({super.key, required this.noteModel});
@@ -21,76 +25,47 @@ class _EditNoteState extends State<EditNote> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: SingleChildScrollView(
-        child: Column(children: [
-          SizedBox(
-            height: 55,
-          ),
-          CustomAppBar(
-            onPressed: () {
-              widget.noteModel.title = title ?? widget.noteModel.title;
-              widget.noteModel.subtitle = title ?? widget.noteModel.subtitle;
-              widget.noteModel.save();
-              Navigator.pop(context);
-              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-            },
-            icon: Icon(Icons.check),
-            title: 'Edit Note',
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          CustomTextField(
-              onChanged: (value) {
-                title = value;
-              },
-              hint: widget.noteModel.title),
-          SizedBox(
-            height: 16,
-          ),
-          CustomTextField(
-              onChanged: (value) {
-                title = value;
-              },
-              hint: widget.noteModel.subtitle,
-              maxLines: 6),
-        ]),
-      ),
-    );
-  }
-}
-class EditColorList extends StatefulWidget {
-  const EditColorList({super.key});
-
-  @override
-  State<EditColorList> createState() => _EditColorListState();
-}
-
-class _EditColorListState extends State<EditColorList> {
-  @override
-  Widget build(BuildContext context) {
-    return   SizedBox(
-      height: 35 * 2,
-      child: ListView.builder(
-        itemCount: color.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6.0),
-            child: GestureDetector(
-              onTap: () {
-                currentIndex = index;
-                BlocProvider.of<AddnoteCubit>(context).color = color[index];
-
-                setState(() {});
-              },
-              child: ColorsItem(
-                color: color[index],
-                isActive: currentIndex == index,
-              ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 55,
             ),
-          );
-        },
+            CustomAppBar(
+              onPressed: () {
+                widget.noteModel.title = title ?? widget.noteModel.title;
+                widget.noteModel.subtitle = title ?? widget.noteModel.subtitle;
+                widget.noteModel.save();
+                Navigator.pop(context);
+                BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              },
+              icon: Icon(Icons.check),
+              title: 'Edit Note',
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            CustomTextField(
+                onChanged: (value) {
+                  title = value;
+                },
+                hint: widget.noteModel.title),
+            SizedBox(
+              height: 16,
+            ),
+            CustomTextField(
+                onChanged: (value) {
+                  title = value;
+                },
+                hint: widget.noteModel.subtitle,
+                maxLines: 6),
+            const SizedBox(
+              height: 16,
+            ),
+            EditColorList(noteModel: widget.noteModel),
+          ],
+        ),
       ),
     );
   }
 }
+
